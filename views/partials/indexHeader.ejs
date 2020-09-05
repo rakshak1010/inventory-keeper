@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MWC</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <link rel="stylesheet" href="css/indexstyles.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.1/css/mdb.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+</head>
+
+<body class="gradient text-white">
+
+    <!--Navbar -->
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color fixed-top">
+        <a class="navbar-brand" href="/">
+            <strong>MWC</strong> <small>Since 1957</small>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+            aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active pr-2">
+                    <a class="nav-link" href="/login">
+                        Login
+                    </a>
+                </li>
+                <li class="nav-item active pr-2">
+                    <a class="nav-link" href="/register">
+                        Sign Up
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" data-toggle="modal" data-target="#sideModalTR">
+                        <i class="fas fa-info"></i>
+                        Info
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <!--/.Navbar -->
+
+
+    <!-- Side Modal Top Right -->
+    <div class="modal fade right" id="sideModalTR" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-side modal-top-right" role="document">
+            <div class="modal-content text-black">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100" id="myModalLabel">About</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Malhotra Watch Company - Since 1967
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

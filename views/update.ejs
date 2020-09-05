@@ -1,0 +1,61 @@
+<%- include('partials/header') %>
+
+<div class="container my-5">
+    <h1 class="h1 py-4 text-center opacity-90">Update Stock</h1>
+    <form class="p-5 shdw" method="POST" action="">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="actionOptions" class="font-weight-bold opacity-60">Select Action:</i></label>
+                    <select class="browser-default custom-select" required name="action" id="actionOptions"
+                        onchange="updateAction(this)">
+                        <option value="" disabled selected>Select an Action</option>
+                        <option value="sell">SELL</option>
+                        <option value="purchase">PURCHASE</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="companyOptions" class="font-weight-bold opacity-60">Company:</label>
+                    <select class="browser-default custom-select" required name="companyId" id="companyOptions"
+                        onchange="updateModels(this, val)">
+                        <option value="" disabled selected>Select a Company</option>
+                        <% inventory.forEach((company) => { %>
+                        <option value=<%=company.id%>><%=company.companyName %></option>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="modelOptions" class="font-weight-bold opacity-60">Model No.</i></label>
+                    <select class="browser-default custom-select" required name="modelId" id="modelOptions"
+                        onchange="updateColors(this, val)">
+                        <option value="" disabled selected>Select a Model</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="colorOptions" class="font-weight-bold opacity-60">Color:</i></label>
+                    <select class="browser-default custom-select" required name="colorId" id="colorOptions">
+                        <option value="" disabled selected>Select a Color</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="quantity" class="font-weight-bold opacity-60">Quantity:</i></label>
+                    <input type="number" id="quantity" required class="form-control">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success d-none" type="submit">Sell</button>
+    </form>
+</div>
+
+<script>
+    var val = '<%- JSON.stringify(inventory) %>';
+</script>
+<%- include('partials/footer') %>

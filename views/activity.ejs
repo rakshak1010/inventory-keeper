@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<div class="container my-5">
+  <h1 class="h1 py-4 text-center opacity-90">Action History</h1>
+  <% var options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' } %>
+  <div class="row">
+    <% activity.forEach((log) => { %>
+    <div class="col-lg-3 col-md-4 col-sm-6 my-2">
+      <div class="card border border-primary shdw-light">
+        <div class="card-body">
+          <h4 class="card-title text-center"><%=log.action %></h4>
+          <% if(log.company){ %> <p class="card-text mb-2">Company: <%=log.company %></p> <% } %>
+          <% if(log.model){ %> <p class="card-text mb-2">Model: <%=log.model %></p> <% } %>
+          <% if(log.color){ %> <p class="card-text mb-2">Color: <%=log.color %></p> <% } %>
+          <% if(log.quantity){ %> <p class="card-text mb-2">Input Quantity: <%=log.quantity %></p> <% } %>
+          <% if(log.updatedValue){ %> <p class="card-text mb-2">Updated Quantity: <%=log.updatedValue %></p> <% } %>
+          <% if(log.createdAt){ %>
+          <p class="card-text mb-2">Time: <%=log.createdAt.toLocaleString("en-US", options) %></p>
+          <% } %>
+          <div class="card-footer text-muted text-center mt-4">
+            <%=log.updatedByName.toUpperCase() %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <% }) %>
+  </div>
+
+</div>
+<%- include('partials/footer') %>

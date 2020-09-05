@@ -1,0 +1,149 @@
+<%- include('partials/header') %>
+
+<!-- <h1 class="jumbotron mt-5">Add New</h1> -->
+<div class="container mt-5">
+
+    <h1 class="h1 py-4 text-center opacity-90">Create Items</h1>
+
+    <%if(typeof error !== undefined && error != ""){%>
+    <div class="alert alert-danger" role="alert">
+        <%=error%>
+    </div>
+    <%}%>
+        <%if(typeof success !== undefined && success != ""){%>
+    <div class="alert alert-success" role="alert">
+        <%=success%>
+    </div>
+    <%}%>
+
+    <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+        <!-- Company -->
+        <div class="card">
+
+            <!-- Card header -->
+            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1">
+                <div class="card-header" role="tab" id="headingOne1">
+                    <h5 class="mb-0">
+                        Company <i class="fas fa-angle-down rotate-icon"></i>
+                    </h5>
+                </div>
+            </a>
+
+            <!-- Card body -->
+            <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+                data-parent="#accordionEx">
+                <div class="card-body">
+                    <form class="p-3" method="POST" action="/create?item=company">
+                        <div class="form-group row">
+                            <!-- <label for="Username" class="col-sm-2 col-form-label"><i class="fas fa-user prefix"></i></label> -->
+                            <div class="col-sm-6">
+                                <div class="md-form">
+                                    <input type="text" class="form-control" id="CompanyName" required name="companyname"
+                                        placeholder="Company Name *">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Model -->
+        <div class="card">
+
+            <!-- Card header -->
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                aria-expanded="false" aria-controls="collapseTwo2">
+                <div class="card-header" role="tab" id="headingTwo2">
+                    <h5 class="mb-0">
+                        Model <i class="fas fa-angle-down rotate-icon"></i>
+                    </h5>
+                </div>
+            </a>
+
+            <!-- Card body -->
+            <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+                data-parent="#accordionEx">
+                <div class="card-body">
+                    <form class="p-3" method="POST" action="/create?item=model">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <select class="md-form browser-default custom-select" required name="companyId">
+                                <option value="" disabled selected>Select a Company</option>
+                                <% inventory.forEach((company) => { %>
+    <option value=<%=company.id%>><%=company.companyName %></option>
+    <% }) %>
+    </select>
+</div>
+<div class="col-sm-6">
+    <div class="md-form">
+        <input type="text" class="form-control" id="ModelName" required name="modelname" placeholder="Model Number *">
+    </div>
+</div>
+</div>
+<button class="btn btn-success" type="submit">Add</button>
+</form>
+</div>
+</div>
+
+</div>
+
+<!-- Color -->
+<div class="card">
+
+    <!-- Card header -->
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3" aria-expanded="false"
+        aria-controls="collapseThree3">
+        <div class="card-header" role="tab" id="headingThree3">
+            <h5 class="mb-0">
+                Color <i class="fas fa-angle-down rotate-icon"></i>
+            </h5>
+        </div>
+    </a>
+
+    <!-- Card body -->
+    <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+        data-parent="#accordionEx">
+        <div class="card-body">
+            <form class="p-3" method="POST" action="/create?item=color">
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <select class="md-form browser-default custom-select" required name="companyId"
+                            id="companyOptions" onchange="updateModels(this, val)">
+                            <option value="" disabled selected>Select a Company</option>
+                            <% inventory.forEach((company) => { %>
+                            <option value=<%=company.id%>><%=company.companyName %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <select class="md-form browser-default custom-select" required name="modelId" id="modelOptions">
+                            <option value="" disabled selected>Select a Model</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="md-form">
+                            <input type="text" class="form-control" id="ColorName" required name="colorname"
+                                placeholder="Color *">
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</div>
+</div>
+<script>
+    var val = '<%- JSON.stringify(inventory) %>';
+</script>
+
+<%- include('partials/footer') %>
